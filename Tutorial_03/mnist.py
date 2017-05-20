@@ -222,7 +222,7 @@ for i in range(num_trials):
         print fit.history["loss"][-1]
         best.append(fit.history["loss"][-1])
         
-        validation_loss.append(fit.history["val_acc"][-1])
+        validation_loss.append(fit.history["val_loss"][-1])
         
     mean_val_loss = np.mean(validation_loss)
     meanvalidationloss.append(mean_val_loss)
@@ -231,7 +231,7 @@ for i in range(num_trials):
         
 #LOSS PLOTTING    
 f=plt.figure()
-plt.errorbar(num_trials_list, meanvalidationloss, yerr= meanvalidationloss_unc)
+plt.errorbar(num_trials_list, meanvalidationloss, yerr= meanvalidationloss_unc, fmt='o')
 plt.xlabel("number of trials")
 plt.ylabel("mean validation loss")
 plt.legend("validation loss",loc="best")
