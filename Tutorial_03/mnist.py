@@ -87,7 +87,7 @@ for batchsize in batch_size_list:
         plt.legend(["training loss","validation loss"],loc="best")
         f.savefig("LOSS_batchsize_"+str(batchsize)+"learningrate_"+str(LearningRate)+".png")
         print fit.history["loss"][-1]
-        best.append(fit.history["loss"][-1])
+        best.append(fit.history["val_loss"][-1])
   
 print best
 print "Minimum loss: ",min(best)
@@ -137,13 +137,13 @@ model = Sequential([
 
 model.compile(
     loss='categorical_crossentropy',
-    optimizer=Adam(lr=1e-3),
+    optimizer=Adam(lr=LR),
     metrics=['accuracy'])
     
 fit = model.fit(
     X_train, Y_train,
-    batch_size=50,
-    epochs=20,
+    batch_size=BS,
+    epochs=10,
     verbose=2,
     validation_split=0.1,  # split off 10% training data for validation
     callbacks=[])
@@ -157,14 +157,62 @@ print "acc: ", fit.history["acc"][-1]
 print "val_loss: ", fit.history["val_loss"][-1]
 print "val_acc: ",fit.history["val_acc"][-1]
 print "*****************************************************************************"
-"""
 
+"""
 
 #-----------------------------TASK 2:
 learning_rate_list=[1e-5,1e-4,1e-3,1e-2,1e-1]
 batch_size_list=[8,16,32,64,128,256,512]
-dropout_fraction_list[0.1,0.2,0.3,0.4,0.5]
-activation_function["relu","softmax","sigmoid","tanh"]
+dropout_fraction_list=[0.1,0.2,0.3,0.4,0.5]
+activation_function=["relu","softmax","sigmoid","tanh"]
+
+num_trials=2
+
+learning_rates=np.random.choice(learning_rate_list,num_trials)
+batch_sizes=np.random.choice(batch_size_list,num_trials)
+dropout_fractions=np.random.choice(dropout_fraction_list,num_trials)
+activation_functions1=np.random.choice(activation_function,num_trials)
+activation_functions2=np.random.choice(activation_function,num_trials)
+
+for i in range(num_trials):
+    print "current batch size: ", batch_sizes[i]
+    print "current learning rate first hidden layer: ",learning_rates[i]
+    print "current dropout fraction: ", dropout_fractions[i]
+    print "current activation function of first hidden layer: ", activation_functions1[i]
+    print "current activation function of seconde hidden layer: ", activation_functions2[i]
+    model = Sequential([
+        Dense(64, input_shape=(784,)),
+        Activation(activation_functions1[i]),
+        Dropout(dropout_fractions[i]),
+        Dense(10),
+        Activation(activation_functions2[i])])
+    
+    #print(model.summary())
+    
+    model.compile(
+        loss='categorical_crossentropy',
+        optimizer=Adam(lr=learning_rates[i]),
+        metrics=['accuracy'])
+        
+    
+    fit = model.fit(
+        X_train, Y_train,
+        batch_size=batch_sizes[i],
+        epochs=10,
+        verbose=1,
+        validation_split=0.1,  # split off 10% training data for validation
+        callbacks=[])
+    
+    #LOSS PLOTTING    
+    f=plt.figure()
+    plt.plot(fit.history["loss"])
+    plt.plot(fit.history["val_loss"])
+    plt.xlabel("epochs")
+    plt.ylabel("loss")
+    plt.legend(["training loss","validation loss"],loc="best")
+    f.savefig("LOSS_batchsize_"+str(batch_sizes[i])+"_learningrate_"+str(learning_rates[i])+"_dropfrac_"+str(dropout_fractions[i])+"_"+str(activation_functions1[i])+"_"+str(activation_functions2[i])+".png")
+    print fit.history["loss"][-1]
+    best.append(fit.history["loss"][-1])
 
 
 
