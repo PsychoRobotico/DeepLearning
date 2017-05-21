@@ -44,7 +44,7 @@ if not os.path.exists(folder):
     os.makedirs(folder)
 """
 #------------------------TASK 1:
-#Hyperparameter choosen: batch_size and epochs!
+#Hyperparameter choosen: batch_size and learning rate!
 #Grid search:
 batch_size_list=[50, 100, 200]
 learningrate_list=[1e-4,1e-3, 1e-2]
@@ -164,9 +164,9 @@ print "*************************************************************************
 learning_rate_list=[1e-5,1e-4,1e-3,1e-2,1e-1]
 batch_size_list=[8,16,32,64,128,256,512]
 dropout_fraction_list=[0.1,0.2,0.3,0.4,0.5]
-activation_function=["relu","softmax","sigmoid","tanh"]
+activation_function=["relu","sigmoid","tanh","elu"]
 
-num_trials=5
+num_trials=35
 num_trials_list=np.arange(1,num_trials+1,1.0)
 print len(num_trials_list)
 best=[]
@@ -174,40 +174,49 @@ best=[]
 meanvalidationloss=[]
 meanvalidationloss_unc=[]
 
-learning_rates=np.random.choice(learning_rate_list,num_trials)
-batch_sizes=np.random.choice(batch_size_list,num_trials)
-dropout_fractions=np.random.choice(dropout_fraction_list,num_trials)
-activation_functions1=np.random.choice(activation_function,num_trials)
-activation_functions2=np.random.choice(activation_function,num_trials)
+learning_rates=np.random.choice(learning_rate_list,num_trials*3)
+batch_sizes=np.random.choice(batch_size_list,num_trials*3)
+dropout_fractions=np.random.choice(dropout_fraction_list,num_trials*3)
+activation_functions1=np.random.choice(activation_function,num_trials*3)
+activation_functions2=np.random.choice(activation_function,num_trials*3)
+
+#print learning_rates
+#print batch_sizes
+#print dropout_fractions
+#print activation_functions1
+
+save_loss=100.
+k=0
 
 for i in range(num_trials):
     validation_loss=[]
-    for j in range(3):
-        print "current batch size: ", batch_sizes[i]
-        print "current learning rate: ",learning_rates[i]
-        print "current dropout fraction: ", dropout_fractions[i]
-        print "current activation function of first hidden layer: ", activation_functions1[i]
-        print "current activation function of second hidden layer: ", activation_functions2[i]
+    for j in range(5):
+        print i,j
+        print "current batch size: ", batch_sizes[k]
+        print "current learning rate: ",learning_rates[k]
+        print "current dropout fraction: ", dropout_fractions[k]
+        print "current activation function of first hidden layer: ", activation_functions1[k]
+        #print "current activation function of second hidden layer: ", activation_functions2[k]
         model = Sequential([
             Dense(64, input_shape=(784,)),
-            Activation(activation_functions1[i]),
-            Dropout(dropout_fractions[i]),
+            Activation(activation_functions1[k]),
+            Dropout(dropout_fractions[k]),
             Dense(10),
-            Activation(activation_functions2[i])])
+            Activation("softmax")])
         
         #print(model.summary())
         
         model.compile(
             loss='categorical_crossentropy',
-            optimizer=Adam(lr=learning_rates[i]),
+            optimizer=Adam(lr=learning_rates[k]),
             metrics=['accuracy'])
             
         
         fit = model.fit(
             X_train, Y_train,
-            batch_size=batch_sizes[i],
+            batch_size=batch_sizes[k],
             epochs=10,
-            verbose=1,
+            verbose=0,
             validation_split=0.1,  # split off 10% training data for validation
             callbacks=[])
             
@@ -218,24 +227,63 @@ for i in range(num_trials):
         plt.xlabel("epochs")
         plt.ylabel("loss")
         plt.legend(["training loss","validation loss"],loc="best")
-        f.savefig("LOSS_batchsize_"+str(batch_sizes[i])+"_learningrate_"+str(learning_rates[i])+"_dropfrac_"+str(dropout_fractions[i])+"_"+str(activation_functions1[i])+"_"+str(activation_functions2[i])+".png")
-        print fit.history["loss"][-1]
-        best.append(fit.history["loss"][-1])
+       # f.savefig("LOSS_batchsize_"+str(batch_sizes[i])+"_learningrate_"+str(learning_rates[i])+"_dropfrac_"+str(dropout_fractions[i])+"_"+str(activation_functions1[i])+"_"+str(activation_functions2[i])+".png")
+        f.savefig(str(k)+"_LOSS_batchsize_"+str(batch_sizes[k])+"_learningrate_"+str(learning_rates[k])+"_dropfrac_"+str(dropout_fractions[k])+"_"+str(activation_functions1[k])+".png")
+        print fit.history["val_loss"][-1]
+        best.append(fit.history["val_loss"][-1])
         
         validation_loss.append(fit.history["val_loss"][-1])
+        
+        if(fit.history["val_loss"][-1]<save_loss):
+            save_loss=fit.history["val_loss"][-1]
+            save_LR=learning_rates[k]
+            save_BS=batch_sizes[k]
+            save_DF=dropout_fractions[k]
+            save_func=activation_functions1[k]
+        
+        
+        k=k+1
         
     mean_val_loss = np.mean(validation_loss)
     meanvalidationloss.append(mean_val_loss)
     mean_val_loss_unc = np.std(validation_loss)
     meanvalidationloss_unc.append(mean_val_loss_unc)
         
+        
+        
+print meanvalidationloss
+print meanvalidationloss_unc
 #LOSS PLOTTING    
 f=plt.figure()
 plt.errorbar(num_trials_list, meanvalidationloss, yerr= meanvalidationloss_unc, fmt='o')
 plt.xlabel("number of trials")
 plt.ylabel("mean validation loss")
-plt.legend("validation loss",loc="best")
+#plt.legend("validation loss",loc="best")
 f.savefig("bestvalidationloss.png")
+
+
+print "DO TRAINING WITH BEST HYPERPARAMETERS:"        
+model = Sequential([
+            Dense(64, input_shape=(784,)),
+            Activation(save_func),
+            Dropout(save_DF),
+            Dense(10),
+            Activation('softmax')])
+        
+#print(model.summary())
+
+model.compile(
+    loss='categorical_crossentropy',
+    optimizer=Adam(lr=save_LR),
+    metrics=['accuracy'])
+    
+fit = model.fit(
+    X_train, Y_train,
+    batch_size=save_BS,
+    epochs=10,
+    verbose=2,
+    validation_split=0.1,  # split off 10% training data for validation
+    callbacks=[])
 
 
 
