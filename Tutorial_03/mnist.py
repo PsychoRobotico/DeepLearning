@@ -196,10 +196,10 @@ for i in num_trials_list:
         #ar_validation_loss=np.array([])
         for m in range(i):
             print i,j,m
-            print "current batch size: ", batch_sizes[k]
-            print "current learning rate: ",learning_rates[k]
-            print "current dropout fraction: ", dropout_fractions[k]
-            print "current activation function of first hidden layer: ", activation_functions1[k]
+            #print "current batch size: ", batch_sizes[k]
+            #print "current learning rate: ",learning_rates[k]
+            #print "current dropout fraction: ", dropout_fractions[k]
+            #print "current activation function of first hidden layer: ", activation_functions1[k]
             #print "current activation function of second hidden layer: ", activation_functions2[k]
             model = Sequential([
                 Dense(64, input_shape=(784,)),
@@ -219,7 +219,8 @@ for i in num_trials_list:
                 validation_split=0.1,  # split off 10% training data for validation
                 callbacks=[])
                 
-            #LOSS PLOTTING    
+            #LOSS PLOTTING  
+            """
             f=plt.figure()
             plt.plot(fit.history["loss"])
             plt.plot(fit.history["val_loss"])
@@ -227,11 +228,12 @@ for i in num_trials_list:
             plt.ylabel("loss")
             plt.legend(["training loss","validation loss"],loc="best")
             f.savefig(str(k)+"_LOSS_batchsize_"+str(batch_sizes[k])+"_learningrate_"+str(learning_rates[k])+"_dropfrac_"+str(dropout_fractions[k])+"_"+str(activation_functions1[k])+".png")
-            print fit.history["val_loss"][-1]
+            """
+            #print fit.history["val_loss"][-1]
             best.append(fit.history["val_loss"][-1])
             
             validation_loss=np.append(validation_loss,fit.history["val_loss"][-1])
-            print validation_loss
+            #print validation_loss
             #validation_loss.append(fit.history["val_loss"][-1])
             
             if(fit.history["val_loss"][-1]<save_loss):
@@ -260,7 +262,7 @@ for i in num_trials_list:
     meanvalidationloss.append(mean_val_loss)
     mean_val_loss_unc = np.std(ar_validation_loss)
     meanvalidationloss_unc.append(mean_val_loss_unc)
-    ar_validation_loss=np.array([])   
+    #ar_validation_loss=np.array([])   
     
     
 print meanvalidationloss
