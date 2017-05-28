@@ -166,7 +166,7 @@ batch_size_list=[8,16,32,64,128,256,512]
 dropout_fraction_list=[0.1,0.2,0.3,0.4,0.5]
 activation_function=["relu","sigmoid","tanh","elu"]
 
-num_trials=8
+num_trials=9
 num_trials_list=np.arange(1,num_trials+1,1)
 print num_trials_list
 print len(num_trials_list)

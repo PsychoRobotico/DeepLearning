@@ -1,0 +1,3 @@
+009 (47134.000.000) 05/21 22:21:59 Job was aborted by the user.
+	via condor_rm (by user s_wuchterl)
+...
