@@ -1,0 +1,5 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "train.py", line 117, in <module>
+    fname=folder + 'test-%i.png' % i)
+NameError: name 'folder' is not defined

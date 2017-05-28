@@ -1,0 +1,48 @@
+000 (383.000.000) 05/24 15:39:02 Job submitted from host: <10.0.2.110:9618?addrs=10.0.2.110-9618&noUDP&sock=2484128_c3fc_3>
+...
+001 (383.000.000) 05/24 15:39:07 Job executing on host: <10.0.2.107:9618?addrs=10.0.2.107-9618&noUDP&sock=847_8cce_4>
+...
+006 (383.000.000) 05/24 15:39:15 Image size of job updated: 2315852
+	2258  -  MemoryUsage of job (MB)
+	2311756  -  ResidentSetSize of job (KB)
+...
+006 (383.000.000) 05/24 15:44:15 Image size of job updated: 2431540
+	2371  -  MemoryUsage of job (MB)
+	2427444  -  ResidentSetSize of job (KB)
+...
+006 (383.000.000) 05/24 15:49:15 Image size of job updated: 2431988
+	2371  -  MemoryUsage of job (MB)
+	2427892  -  ResidentSetSize of job (KB)
+...
+006 (383.000.000) 05/24 15:54:16 Image size of job updated: 2432220
+	2372  -  MemoryUsage of job (MB)
+	2428124  -  ResidentSetSize of job (KB)
+...
+006 (383.000.000) 05/24 15:59:17 Image size of job updated: 2432484
+	2372  -  MemoryUsage of job (MB)
+	2428388  -  ResidentSetSize of job (KB)
+...
+006 (383.000.000) 05/24 16:04:18 Image size of job updated: 2432864
+	2372  -  MemoryUsage of job (MB)
+	2428768  -  ResidentSetSize of job (KB)
+...
+006 (383.000.000) 05/24 16:05:31 Image size of job updated: 24932196
+	2372  -  MemoryUsage of job (MB)
+	2428768  -  ResidentSetSize of job (KB)
+...
+005 (383.000.000) 05/24 16:05:31 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:21:11, Sys 0 00:02:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:21:11, Sys 0 00:02:32  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :     3750     3750   6742963
+	   Gpus                 :                 1         1
+	   Memory (MB)          :     2372     4096      4096
+...

@@ -1,0 +1,5 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "train.py", line 63, in <module>
+    model.add(MaxPooling2D(pool_size=(3, 3)),padding="same")
+TypeError: add() got an unexpected keyword argument 'padding'

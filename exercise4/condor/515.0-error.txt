@@ -1,0 +1,31 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "train.py", line 68, in <module>
+    model.add(MaxPooling2D(pool_size=(3, 3)))
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/models.py", line 455, in add
+    output_tensor = layer(self.outputs[0])
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/topology.py", line 554, in __call__
+    output = self.call(inputs, **kwargs)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/layers/pooling.py", line 154, in call
+    data_format=self.data_format)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/layers/pooling.py", line 217, in _pooling_function
+    pool_mode='max')
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py", line 3014, in pool2d
+    x = tf.nn.max_pool(x, pool_size, strides, padding=padding)
+  File "/software/tensorflow-default/tensorflow/python/ops/nn_ops.py", line 1793, in max_pool
+    name=name)
+  File "/software/tensorflow-default/tensorflow/python/ops/gen_nn_ops.py", line 1598, in _max_pool
+    data_format=data_format, name=name)
+  File "/software/tensorflow-default/tensorflow/python/framework/op_def_library.py", line 763, in apply_op
+    op_def=op_def)
+  File "/software/tensorflow-default/tensorflow/python/framework/ops.py", line 2397, in create_op
+    set_shapes_for_outputs(ret)
+  File "/software/tensorflow-default/tensorflow/python/framework/ops.py", line 1757, in set_shapes_for_outputs
+    shapes = shape_func(op)
+  File "/software/tensorflow-default/tensorflow/python/framework/ops.py", line 1707, in call_with_requiring
+    return call_cpp_shape_fn(op, require_shape_fn=True)
+  File "/software/tensorflow-default/tensorflow/python/framework/common_shapes.py", line 610, in call_cpp_shape_fn
+    debug_python_shape_fn, require_shape_fn)
+  File "/software/tensorflow-default/tensorflow/python/framework/common_shapes.py", line 675, in _call_cpp_shape_fn_impl
+    raise ValueError(err.message)
+ValueError: Negative dimension size caused by subtracting 3 from 2 for 'max_pooling2d_5/MaxPool' (op: 'MaxPool') with input shapes: [?,2,2,512].

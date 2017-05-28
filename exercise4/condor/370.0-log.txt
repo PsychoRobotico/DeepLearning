@@ -1,0 +1,52 @@
+000 (370.000.000) 05/23 23:11:25 Job submitted from host: <10.0.2.110:9618?addrs=10.0.2.110-9618&noUDP&sock=2484128_c3fc_3>
+...
+001 (370.000.000) 05/23 23:11:26 Job executing on host: <10.0.2.104:9618?addrs=10.0.2.104-9618&noUDP&sock=1096_57e3_4>
+...
+006 (370.000.000) 05/23 23:11:34 Image size of job updated: 2334856
+	2273  -  MemoryUsage of job (MB)
+	2326664  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:16:34 Image size of job updated: 2435436
+	2371  -  MemoryUsage of job (MB)
+	2427244  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:21:34 Image size of job updated: 2437840
+	2373  -  MemoryUsage of job (MB)
+	2429648  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:26:34 Image size of job updated: 2440252
+	2376  -  MemoryUsage of job (MB)
+	2432060  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:31:35 Image size of job updated: 2443160
+	2378  -  MemoryUsage of job (MB)
+	2434968  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:36:36 Image size of job updated: 2445736
+	2381  -  MemoryUsage of job (MB)
+	2437544  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:41:37 Image size of job updated: 2448752
+	2384  -  MemoryUsage of job (MB)
+	2440560  -  ResidentSetSize of job (KB)
+...
+006 (370.000.000) 05/23 23:44:11 Image size of job updated: 2450440
+	2384  -  MemoryUsage of job (MB)
+	2440560  -  ResidentSetSize of job (KB)
+...
+005 (370.000.000) 05/23 23:44:11 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:31:43, Sys 0 00:02:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:31:43, Sys 0 00:02:32  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :     3750     3750   7384170
+	   Gpus                 :                 1         1
+	   Memory (MB)          :     2384     4096      4096
+...

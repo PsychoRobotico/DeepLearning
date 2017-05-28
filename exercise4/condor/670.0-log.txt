@@ -1,0 +1,48 @@
+000 (670.000.000) 05/24 17:23:22 Job submitted from host: <10.0.2.106:9618?addrs=10.0.2.106-9618&noUDP&sock=1098_b713_3>
+...
+001 (670.000.000) 05/24 17:23:26 Job executing on host: <10.0.2.101:9618?addrs=10.0.2.101-9618&noUDP&sock=920_9f38_4>
+...
+006 (670.000.000) 05/24 17:23:35 Image size of job updated: 2159016
+	2105  -  MemoryUsage of job (MB)
+	2154920  -  ResidentSetSize of job (KB)
+...
+006 (670.000.000) 05/24 17:28:36 Image size of job updated: 2430860
+	2370  -  MemoryUsage of job (MB)
+	2426764  -  ResidentSetSize of job (KB)
+...
+006 (670.000.000) 05/24 17:33:37 Image size of job updated: 2431384
+	2371  -  MemoryUsage of job (MB)
+	2427288  -  ResidentSetSize of job (KB)
+...
+006 (670.000.000) 05/24 17:38:38 Image size of job updated: 2431908
+	2371  -  MemoryUsage of job (MB)
+	2427812  -  ResidentSetSize of job (KB)
+...
+006 (670.000.000) 05/24 17:43:38 Image size of job updated: 2432472
+	2372  -  MemoryUsage of job (MB)
+	2428376  -  ResidentSetSize of job (KB)
+...
+006 (670.000.000) 05/24 17:48:38 Image size of job updated: 2433044
+	2373  -  MemoryUsage of job (MB)
+	2428948  -  ResidentSetSize of job (KB)
+...
+006 (670.000.000) 05/24 17:50:06 Image size of job updated: 2443368
+	2373  -  MemoryUsage of job (MB)
+	2428948  -  ResidentSetSize of job (KB)
+...
+005 (670.000.000) 05/24 17:50:06 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:21:55, Sys 0 00:02:32  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:21:55, Sys 0 00:02:32  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :     3750     3750   4874047
+	   Gpus                 :                 1         1
+	   Memory (MB)          :     2373     4096      4096
+...

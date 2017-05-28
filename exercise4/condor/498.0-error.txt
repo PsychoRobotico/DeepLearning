@@ -1,0 +1,5 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "train.py", line 102, in <module>
+    [loss, accuracy] = model.evaluate(X_test, Y_test, verbose=0)
+NameError: name 'X_test' is not defined
