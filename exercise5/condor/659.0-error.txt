@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "Exercise5.py", line 80, in <module>
-    obj = np.mean((y_toy[:,0,0] - y_train[:,0])**2)
-IndexError: too many indices for array

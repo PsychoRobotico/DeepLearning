@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "Exercise5.py", line 107, in <module>
-    y_toy.append[y]
-TypeError: 'builtin_function_or_method' object has no attribute '__getitem__'

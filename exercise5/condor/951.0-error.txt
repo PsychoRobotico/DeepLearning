@@ -1,9 +1,0 @@
-Using TensorFlow backend.
-Traceback (most recent call last):
-  File "Exercise5.py", line 222, in <module>
-    B_test=np.reshape(X_test,(22000,32,32,1))
-  File "/software/numpy-1.12.0/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 232, in reshape
-    return _wrapfunc(a, 'reshape', newshape, order=order)
-  File "/software/numpy-1.12.0/lib/python2.7/site-packages/numpy/core/fromnumeric.py", line 57, in _wrapfunc
-    return getattr(obj, method)(*args, **kwds)
-ValueError: cannot reshape array of size 4096000 into shape (22000,32,32,1)

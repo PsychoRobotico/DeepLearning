@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "Exercise5.py", line 73, in <module>
-    W2=np.array([2,1,-1],[-2,-2,1])
-TypeError: data type not understood

@@ -1,4 +1,0 @@
-  File "Exercise5.py", line 59
-    for ep in np.linspace(0.,0.3,num=300)
-                                        ^
-SyntaxError: invalid syntax

@@ -1,4 +1,0 @@
-  File "Exercise5.py", line 135
-    Dense(2),activation="softmax"])
-                       ^
-SyntaxError: invalid syntax

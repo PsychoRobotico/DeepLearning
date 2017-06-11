@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "Exercise5.py", line 65, in <module>
-    Matrix=np.zeros(3,N)
-TypeError: data type not understood

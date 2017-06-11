@@ -1,4 +1,0 @@
-  File "Exercise5.py", line 47
-    print X_train.[0]
-                  ^
-SyntaxError: invalid syntax

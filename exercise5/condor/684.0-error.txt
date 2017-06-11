@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "Exercise5.py", line 112, in <module>
-    acc_toy = np.mean(np.round(y_toy[:,1,0]) == y_test)
-TypeError: list indices must be integers, not tuple

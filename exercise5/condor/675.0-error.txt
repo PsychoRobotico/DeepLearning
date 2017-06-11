@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "Exercise5.py", line 102, in <module>
-    h1=heaviside(1./(1.+epsilon)*np.array([[m-epsilon],[-m-epsilon],[m+epsilon]]))
-NameError: name 'epsilon' is not defined
