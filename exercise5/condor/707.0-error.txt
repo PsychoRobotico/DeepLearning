@@ -1,0 +1,11 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 172, in <module>
+    yp=model.predict([X_test[0]])
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/models.py", line 891, in predict
+    return self.model.predict(x, batch_size=batch_size, verbose=verbose)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/training.py", line 1554, in predict
+    check_batch_axis=False)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/training.py", line 121, in _standardize_input_data
+    str(array.shape))
+ValueError: Error when checking : expected input_1 to have 3 dimensions, but got array with shape (32, 32)

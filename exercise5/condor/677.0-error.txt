@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "Exercise5.py", line 107, in <module>
+    if(y[1][0]==y_toy[i]):
+NameError: name 'y_toy' is not defined

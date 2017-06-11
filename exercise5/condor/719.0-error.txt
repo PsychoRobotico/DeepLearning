@@ -1,0 +1,5 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 197, in <module>
+    print round(yp[0],0)
+TypeError: only length-1 arrays can be converted to Python scalars

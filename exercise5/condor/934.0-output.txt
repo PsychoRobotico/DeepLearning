@@ -1,0 +1,2 @@
+<type 'numpy.ndarray'>
+(3, 1)

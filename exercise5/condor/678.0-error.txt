@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "Exercise5.py", line 103, in <module>
+    m=np.mean(X_test[i])
+IndexError: index 4000 is out of bounds for axis 0 with size 4000

@@ -1,0 +1,13 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 160, in <module>
+    callbacks=[])
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/models.py", line 845, in fit
+    initial_epoch=initial_epoch)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/training.py", line 1405, in fit
+    batch_size=batch_size)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/training.py", line 1299, in _standardize_user_data
+    exception_prefix='model target')
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/training.py", line 133, in _standardize_input_data
+    str(array.shape))
+ValueError: Error when checking model target: expected dense_5 to have shape (None, 2) but got array with shape (22000, 1)

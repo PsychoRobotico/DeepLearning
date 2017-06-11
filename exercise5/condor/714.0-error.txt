@@ -1,0 +1,5 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 193, in <module>
+    if(yp[0]==Y_test[i]):
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

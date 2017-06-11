@@ -1,0 +1,13 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 251, in <module>
+    Dense(2, activation='softmax')])
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/models.py", line 387, in __init__
+    self.add(layer)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/models.py", line 455, in add
+    output_tensor = layer(self.outputs[0])
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/topology.py", line 511, in __call__
+    self.assert_input_compatibility(inputs)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/engine/topology.py", line 413, in assert_input_compatibility
+    str(K.ndim(x)))
+ValueError: Input 0 is incompatible with layer conv2d_1: expected ndim=4, found ndim=3

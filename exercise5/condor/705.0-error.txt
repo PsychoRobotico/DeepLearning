@@ -1,0 +1,5 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 173, in <module>
+    print "eval ",model.evaluate(X_test[0])
+TypeError: evaluate() takes at least 3 arguments (2 given)

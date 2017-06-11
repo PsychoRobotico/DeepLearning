@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "Exercise5.py", line 66, in <module>
+    print Matrix.shape
+AttributeError: 'list' object has no attribute 'shape'

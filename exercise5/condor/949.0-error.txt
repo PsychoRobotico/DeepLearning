@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "Exercise5.py", line 73, in <module>
+    h1=np.dot(W1,X_train[1].reshape((1,1024)))+b1
+ValueError: shapes (3,1024) and (1,1024) not aligned: 1024 (dim 1) != 1 (dim 0)

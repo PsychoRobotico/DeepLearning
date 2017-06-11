@@ -1,0 +1,13 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "Exercise5.py", line 239, in <module>
+    Convolution1D(8, (3, 3), activation='relu'),
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/legacy/interfaces.py", line 87, in wrapper
+    return func(*args, **kwargs)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/layers/convolutional.py", line 330, in __init__
+    **kwargs)
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/layers/convolutional.py", line 103, in __init__
+    self.kernel_size = conv_utils.normalize_tuple(kernel_size, rank, 'kernel_size')
+  File "/software/keras-2.0.1/lib/python2.7/site-packages/keras/utils/conv_utils.py", line 33, in normalize_tuple
+    str(n) + ' integers. Received: ' + str(value))
+ValueError: The `kernel_size` argument must be a tuple of 1 integers. Received: (3, 3)
