@@ -63,7 +63,7 @@ accs=[]
 loss=[]
 eps=[]
 """
-for ep in np.arange(0.,0.8,0.001):
+for ep in np.arange(0.,1.0,0.001):
     #epsilon=0.1
     epsilon=ep
     eps.append(ep)
@@ -85,9 +85,14 @@ for ep in np.arange(0.,0.8,0.001):
     #print acc_toy
     accs.append(acc_toy)
 #-->epsilon=0.5
+maxi=np.amax(accs)
+ind=accs.index(maxi)
 plt.figure()
+plt.text(0.1,0.5,"acc max "+str(maxi)+" at epsilon= "+str(eps[ind]),fontsize=12)
 plt.plot(eps,accs,label="acc")
 plt.plot(eps,loss,label="loss")
+plt.xlabel("epsilon")
+plt.ylabel("value")
 plt.legend(loc="best")
 plt.savefig("toy_epsilon.png")
 """
@@ -95,7 +100,7 @@ plt.savefig("toy_epsilon.png")
 counter=np.zeros(len(T))
 abs_counter=np.zeros(len(T))
 
-epsilon=0.5
+epsilon=0.725
 
 y_toy=[]
 for i in range(len(X_test)):
@@ -108,7 +113,7 @@ for i in range(len(X_test)):
         counter[T_index_test[i]]+=1
 y_toy=np.array(y_toy)
 acc_toy = np.mean(np.round(y_toy[:,1,0]) == y_test)
-print acc_toy
+print "acc toy",acc_toy
 
 accs_toy=counter/abs_counter
 
@@ -155,7 +160,7 @@ model.fit(
 model.save('model_fully.h5')
 
 loss, acc = model.evaluate(X_test, Y_test, verbose=0, batch_size=128)
-print('Test performance')
+print('Test performance fully')
 print('Loss = %.4f, acc = %.4f' % (loss, acc))
 
 y_fully=[]
@@ -198,21 +203,20 @@ Y_test = dlipr.utils.to_onehot(y_test)
 B_train=np.reshape(X_train,(22000,32,32,1))
 B_test=np.reshape(X_test,(4000,32,32,1))
 
-
-model2 = keras.models.Sequential([
-    InputLayer(input_shape=(32, 32,1)),
-    Convolution2D(8, (3,3), activation='relu'),
-    Dropout(0.2),
-    Convolution2D(16, (3,3), activation='relu'),
-    MaxPooling2D((2,2)),
-    Convolution2D(32, (3,3), activation='relu'),
-    Dropout(0.2),
-    Convolution2D(32, (3,3), activation='relu'),
-    GlobalAveragePooling2D(),
-    Dense(32, activation='relu'),
-    Dropout(0.1),
-    Dense(16),
-    Dense(2, activation='softmax')])
+model2 = keras.models.Sequential()
+model2.add(keras.layers.Convolution2D(16,kernel_size=(5,5),strides=(1,1),padding="same",dilation_rate=1,activation=None,input_shape=B_train.shape[1:]))
+model2.add(Activation("relu"))
+model2.add(keras.layers.MaxPooling2D((2,2),strides=None,padding="valid"))
+model2.add(Dropout(0.25))
+model2.add(keras.layers.Convolution2D(16,kernel_size=(3,3),strides=(1,1),padding="same",dilation_rate=2))
+model2.add(Activation("relu"))
+model2.add(GlobalAveragePooling2D())
+model2.add(Dense(32))
+model2.add(Dropout(0.25))
+model2.add(Activation("relu"))
+model2.add(Dense(2))
+model2.add(Activation('softmax')) 
+ 
     
 print(model2.summary())
 
@@ -232,7 +236,7 @@ model2.fit(
 model2.save('model_conv.h5')
 
 loss, acc = model2.evaluate(B_test, Y_test, verbose=0, batch_size=128)
-print('Test performance')
+print('Test performance conv')
 print('Loss = %.4f, acc = %.4f' % (loss, acc))
 
 y_conv=[]
@@ -260,4 +264,3 @@ plt.xlabel("temperature")
 plt.ylabel("accuracy")
 plt.legend(loc="best")
 plt.savefig("conv.png")
-

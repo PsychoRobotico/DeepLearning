@@ -18,10 +18,11 @@ print(model.layers)
 
 # Note: You need to pick the right convolutional layers from your network here
 conv1 = model.layers[0]
-conv2 = model.layers[1]
+conv2 = model.layers[3]
 
 
-
+print conv1.get_weights()[0].shape
+print conv2.get_weights()[0].shape
 # ----------------------------------------------------------
 # Plot the convolutional filters in the first layer
 # ----------------------------------------------------------
